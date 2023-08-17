@@ -13,7 +13,7 @@ def get_chat_response():
             return jsonify({'response': "length exceeded"})  
         short_term_memory = request.json['short_term_memory']
 
-        context = get_context()
+        context = get_context(input_prompt)
         response = get_response(input_prompt,short_term_memory,context)
         return jsonify({'response': response})
     except Exception as e:
